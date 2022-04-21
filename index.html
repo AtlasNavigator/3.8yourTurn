@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Generic Goose</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
@@ -21,12 +22,26 @@
                     </div>
                 </div>
             </fieldset>
-            <button type="button">Say hi!</button>
+            <button id="speak" type="button">Say hi!</button>
         </form>
     </div>
 </div>
 <script>
+    const content = document.querySelector('.content');
+    const first = document.getElementById('firstname');
+    const last = document.getElementById('lastname');
+    const speak = document.getElementById('speak');
+    console.log(first);
+    console.log(last);
 
+
+    speak.addEventListener('click', function (e) {
+        const read = document.createElement('p');
+        read.innerHTML = `Hello ${first.value} ${last.value}`;
+        content.insertAdjacentElement('afterend', read);
+        first.value = '';
+        last.value = '';
+    })
 </script>
 </body>
 </html>
